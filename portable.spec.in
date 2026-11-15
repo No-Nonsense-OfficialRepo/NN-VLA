@@ -1,0 +1,62 @@
+# -*- mode: python ; coding: utf-8 -*-
+from pathlib import Path
+import sys
+
+project = Path(r'__PROJECT__')
+source = project / 'src'
+assets = source / 'lantool' / 'qt' / 'assets'
+app_name = '__APP_NAME__'
+abi_dlls = [Path(sys.executable).parent / 'python3.dll',
+            Path(sys.executable).parent / 'abi3t-compat' / 'python3t.dll']
+
+a = Analysis(
+    [str(source / 'vla_app' / 'main.py')],
+    pathex=[str(source)],
+    binaries=[(str(dll), '.') for dll in abi_dlls if dll.is_file()],
+    datas=[
+        (str(source / 'vla_app' / 'Main.qml'), 'vla_app'),
+        (str(source / 'lantool' / 'qt' / 'qml'), 'lantool/qt/qml'),
+        (str(assets / 'fonts'), 'lantool/qt/assets/fonts'),
+        (str(assets / 'themes' / 'dark' / 'controls'), 'lantool/qt/assets/themes/dark/controls'),
+        (str(assets / 'no-nonsense-monogram.png'), 'lantool/qt/assets'),
+        (str(assets / 'launcher-icon.ico'), 'lantool/qt/assets'),
+    ],
+    hiddenimports=['PySide6.QtQuick', 'PySide6.QtSvg'],
+    hookspath=[str(project / 'hooks')],
+    runtime_hooks=[str(project / 'hooks' / 'qt_runtime_hook.py')],
+    excludes=[
+        'PySide6.Qt3DAnimation', 'PySide6.Qt3DCore', 'PySide6.Qt3DExtras',
+        'PySide6.Qt3DInput', 'PySide6.Qt3DLogic', 'PySide6.Qt3DRender',
+        'PySide6.QtCharts', 'PySide6.QtDataVisualization', 'PySide6.QtGraphs',
+        'PySide6.QtLocation', 'PySide6.QtMultimedia', 'PySide6.QtMultimediaWidgets',
+        'PySide6.QtPdf', 'PySide6.QtPdfWidgets', 'PySide6.QtPositioning',
+        'PySide6.QtRemoteObjects', 'PySide6.QtScxml', 'PySide6.QtSensors',
+        'PySide6.QtSpatialAudio', 'PySide6.QtSql', 'PySide6.QtStateMachine',
+        'PySide6.QtTest', 'PySide6.QtTextToSpeech', 'PySide6.QtVirtualKeyboard',
+        'PySide6.QtWebChannel', 'PySide6.QtWebEngineCore',
+        'PySide6.QtWebEngineQuick', 'PySide6.QtWebEngineWidgets',
+        'PySide6.QtWebSockets', 'PySide6.QtWebView', 'PySide6.QtQuick3D',
+        'PIL.AvifImagePlugin', 'PIL._avif',
+    ],
+    noarchive=False,
+)
+
+# Qt 6.12 uses Windows' System32 ICU API. The unrelated private copy found by
+# dependency scanning shadows it and causes QtCore to fail at process startup.
+# NNLL's release builder makes the same runtime correction.
+if (Path(r'C:\Windows\System32\icuuc.dll').is_file()):
+    a.binaries = [item for item in a.binaries
+                  if Path(item[0]).name.lower() != 'icuuc.dll']
+
+pyz = PYZ(a.pure)
+exe = EXE(
+    pyz, a.scripts, a.binaries, a.datas, [],
+    name=app_name,
+    debug=False,
+    bootloader_ignore_signals=False,
+    strip=False,
+    upx=False,
+    console=False,
+    version=str(project / 'build' / 'windows-version.txt'),
+    icon=str(assets / 'launcher-icon.ico'),
+)

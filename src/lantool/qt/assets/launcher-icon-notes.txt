@@ -1,0 +1,14 @@
+Created with the built-in imagegen tool from the user's supplied emblem.
+PNG: enhanced 1254 x 1254 image with transparent alpha.
+ICO: 16, 24, 32, 48, 64, 128 and 256 pixel sizes.
+
+Prompt: Edit target: supplied tiny red and aged gold pointed angular emblem.
+Upscale and enhance this exact emblem into a crisp high resolution square
+launcher icon. Preserve its exact silhouette, proportions, pointed arch,
+internal cutouts, red and gold metallic edges, central black interior shape
+if part of emblem. Remove all solid rectangular dark background completely,
+including background showing through cutouts; actual transparent alpha, no
+checkerboard baked in. Center the emblem with 6 percent transparent padding,
+no text, no new shapes, no drop shadow. Faithfully reconstruct sharp polished
+edges with restrained metallic highlights for clear 16px to 256px taskbar
+display. Save the resulting PNG.

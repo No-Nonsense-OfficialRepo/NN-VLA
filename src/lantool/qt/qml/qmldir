@@ -1,0 +1,5 @@
+singleton Theme 1.0 Theme.qml
+singleton ActionIcons 1.0 ActionIcons.qml
+
+singleton HoverHelp 1.0 HoverHelp.qml
+singleton WindowPreferences 1.0 WindowPreferences.qml

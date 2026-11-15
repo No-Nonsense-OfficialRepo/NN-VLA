@@ -1,0 +1,37 @@
+# Generated builds and upload packages
+/build/
+/dist/
+/github-upload/
+/NN VLA.spec
+/ui-smoke.png
+
+# Local smoke runs and portable application state
+/smoke-data/
+/smoke-data-final/
+/NN VLA Data/
+**/host-identity.json
+**/client-identity.json
+**/authtoken.secret
+**/last-error.txt
+**/self-test.json
+**/options.json
+**/state.json
+
+# Python and editor byproducts
+/.venv/
+/venv/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+*.log
+
+# Credentials and private keys
+.env
+.env.*
+!.env.example
+*.pem
+*.pfx
+*.p12
+*.key
+*.secret
