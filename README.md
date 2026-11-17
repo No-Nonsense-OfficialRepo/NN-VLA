@@ -1,6 +1,10 @@
-# NN VLA
+# No-Nonsense Virtual LAN Adapter (NNVLA)
 
 Standalone Windows room tunnelling UI using the No-Nonsense LAN Launcher theme and its existing VLA room protocol components. The borderless window starts at 320 × 320 and can be dragged taller to show more users at once; the room and options views scroll when needed. This repository is a **development build**, not a complete distributable release.
+
+## Download a test build
+
+[Download NNVLA v1.0.11 Test Build](https://github.com/No-Nonsense-OfficialRepo/NN-VLA-Test-Build/releases/tag/v1.0.11) from the separate test-build repository. Download its attached ZIP, extract it to a writable folder, and run `NN VLA V1.0.11.exe`. This development build does not bundle the native service or driver, so it cannot set up tunnelling on a fresh PC. GitHub's automatically generated source ZIP is not the portable app.
 
 ## Implemented source
 

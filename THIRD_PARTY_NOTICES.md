@@ -1,6 +1,6 @@
 # Third-party notices
 
-NN VLA derives networking modules and visual assets from [No-Nonsense LAN Launcher](https://github.com/No-Nonsense-OfficialRepo/NNLL). The starting source snapshot and local adaptations are recorded in [SOURCE-PROVENANCE.md](SOURCE-PROVENANCE.md). The project carries the GNU GPL v3 text in [LICENSE](LICENSE).
+NN VLA derives networking modules and visual assets from [No-Nonsense LAN Launcher](https://github.com/No-Nonsense-OfficialRepo/NN-LL). The starting source snapshot and local adaptations are recorded in [SOURCE-PROVENANCE.md](SOURCE-PROVENANCE.md). The project carries the GNU GPL v3 text in [LICENSE](LICENSE).
 
 The bundled fonts retain their licence files beside the fonts:
 
